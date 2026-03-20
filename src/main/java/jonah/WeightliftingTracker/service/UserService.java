@@ -15,16 +15,31 @@ public class UserService {
     }
 
     public User createUser(String username, String email, String password) {
-        User user = new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setPassword(password);
+        if (userRepository.existsByEmail(email)) {
+            throw new RuntimeException("Email already in use");
+        }
 
+        if (userRepository.existsByUsername(username)) {
+            throw new RuntimeException("Username already taken");
+        }
+
+        User user = new User(username, password, email);
         return userRepository.save(user);
     }
 
     public User getUser(UUID id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    public User login(String email, String password) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (!user.getPassword().equals(password)) {
+            throw new RuntimeException("Invalid password");
+        }
+
+        return user;
     }
 }
