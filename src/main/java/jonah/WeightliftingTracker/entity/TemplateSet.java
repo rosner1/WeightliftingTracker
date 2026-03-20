@@ -23,4 +23,42 @@ public class TemplateSet {
     private BigDecimal targetWeight;
 
     public TemplateSet() {}
+
+    public TemplateSet(TemplateLift templateLift, Integer targetRepsMin, Integer targetRepsMax, BigDecimal targetWeight) {
+        this.templateLift = templateLift;
+        this.targetRepsMin = targetRepsMin;
+        this.targetRepsMax = targetRepsMax;
+        this.targetWeight = targetWeight;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+    public void setId(UUID id) {
+        this.id = id;
+    }
+    public TemplateLift getTemplateLift() {
+        return templateLift;
+    }
+    public void setTemplateLift(TemplateLift templateLift) {
+        this.templateLift = templateLift;
+    }
+    public Integer getTargetRepsMin() {
+        return targetRepsMin;
+    }
+    public void setTargetRepsMin(Integer targetRepsMin) {
+        this.targetRepsMin = targetRepsMin;
+    }
+    public Integer getTargetRepsMax() {
+        return targetRepsMax;
+    }
+    public void setTargetRepsMax(Integer targetRepsMax) {
+        this.targetRepsMax = targetRepsMax;
+    }
+    public BigDecimal getTargetWeight() {
+        return targetWeight;
+    }
+    public void setTargetWeight(BigDecimal targetWeight) {
+        this.targetWeight = targetWeight;
+    }
 }

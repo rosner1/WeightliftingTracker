@@ -24,4 +24,36 @@ public class TemplateLift {
     private Integer order;
 
     public TemplateLift() {}
+
+    public TemplateLift(WorkoutTemplate template, Lift lift, Integer order) {
+        this.template = template;
+        this.lift = lift;
+        this.order = order;
+    }
+
+    public Integer getOrder() {
+        return order;
+    }
+    public void setOrder(Integer order) {
+        this.order = order;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+    public void setId(UUID id) {
+        this.id = id;
+    }
+    public WorkoutTemplate getTemplate() {
+        return template;
+    }
+    public void setTemplate(WorkoutTemplate template) {
+        this.template = template;
+    }
+    public Lift getLift() {
+        return lift;
+    }
+    public void setLift(Lift lift) {
+        this.lift = lift;
+    }
 }
